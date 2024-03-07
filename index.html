@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="style.css">
+	<link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet"></link>
+    <title>Landing page</title>
+</head>
+<body>
+<header>
+    <nav>
+        <div class="logo">VGDN</div>
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="menu-icon">&#9776;</label>
+        <ul>
+            <li><a class="links" href="#home" ><span class="link">Home</span></a></li>
+            <li><a class="links" href="#aboutus" ><span class="link">About us</span></a></li>
+            <li><a class="links" href="#service" ><span class="link">Services</span></a></li>
+            <li><a class="links" href="#ourworks" ><span class="link">Our works</span></a></li>
+            <li><a class="links" href="#contact" ><span class="link">Contact</span></a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="home" id='home'>
+    <div class="slogan">
+        Empowering<br> Your<br>
+        Online<br> Presence
+    </div>
+    <div>
+        <img class="home-img" src="pc.png" width="auto" height="80%">
+    </div>
+</section>
+
+<section class="aboutus" id="aboutus">
+    <h1>About Us</h1>
+
+    <p>Welcome to VGDN Solution's!</p>
+    <p>At VGDN Solution's, our mission is to empower businesses of all sizes to establish a strong online presence and achieve their digital goals. We believe in leveraging the power of technology and innovation to deliver exceptional results for our clients.</p>
+    <p>
+Founded by a team of passionate individuals in 2024, VGDN Solution's started as a small startup with a big vision: to revolutionize the digital landscape by providing top-notch web development, SEO, and digital marketing solutions. Over the years, we have grown into a trusted partner for businesses looking to succeed online.
+    </p>
+
+    <p>Ready to take your business to the next level? Contact us today to discuss how we can help you achieve your digital goals!</p>
+</section>
+
+
+
+<section class="service" id="service">
+    <h1>Services</h1>
+    <div class="service-list">
+    	<div class="service-card">
+    		<div class="service-img">
+    			<img src="web.jpg" width="100%" height="auto">
+    		</div>
+    		<div class="service-text">
+    			<h3>WEB DEVELOPMENT</h3>
+    				We create customized, user-friendly websites tailored to your needs.
+    		</div>
+    	</div>
+    	<div class="service-card">
+    		<div class="service-img">
+    			<img src="market.jpg" width="100%" height="auto">
+    		</div>
+    		<div class="service-text">
+    			<h3>DIGITAL MARKETING</h3>
+    				Elevate your online presence with our targeted marketing strategies.
+    		</div>
+    	</div>
+    	<div class="service-card">
+    		<div class="service-img">
+    			<img src="cyber.jpg" width="100%" height="auto">
+    		</div>
+    		<div class="service-text">
+    			<h3>CYBER SECURITY</h3>
+    				Protect your digital assets with our cutting-edge security solutions.
+    		</div>
+    	</div>
+    </div>
+</section>
+
+
+
+
+<section class="ourworks" id="ourworks">
+    <h1>Our Works</h1>
+<div class="slideshow-container">
+
+<div class="mySlides fade">
+  <img src="2.png" style="width:100%">
+  <div class="service-text">TECHUNITY 2K23</div>
+</div>
+
+<div class="mySlides fade">
+  <img src="3.png" style="width:100%">
+  <div class="service-text">TIME COUNTER</div>
+</div>
+
+<div class="mySlides fade">
+  <img src="1.png" style="width:100%">
+  <div class="service-text">VACCINATION SLOT BOOKING</div>
+</div>
+
+<a class="prev" onclick="plusSlides(-1)">❮</a>
+<a class="next" onclick="plusSlides(1)">❯</a>
+
+</div>
+
+</section>
+
+<section class="contact" id="contact">
+    <h1>Contact Us</h1>
+<div class="icon-contact">
+	<div class="icons">
+
+                    <a href="https://www.linkedin.com/in/vengadesan-g-472b37257"><i class='bx bxl-linkedin'></i></a>       
+                    <a href="mailto:vengadesang2003@gmail.com"><i class='bx bxs-envelope'></i></a>
+                    <a href="#"><i class='bx bxl-instagram'></i></a>
+                    <a href="#"><i class='bx bxl-facebook'></i></a>
+                    <a href="#"><i class='bx bxs-phone'></i></a>                        
+                    <a href="https://maps.google.com"><i class='bx bx-map'></i></a>                  
+                           
+
+	</div>
+	<div class="contactus">
+		<div class="form">Contact Form</div>
+
+		<form class="contactform">
+			<label >Your Name:</label>
+			<input type="text" placeholder="Enter your name.." class="name" required>
+
+			<label >Your Email:</label>
+			<input type="email" placeholder="Enter your email.." class="email" required>
+
+			<label>Message:</label>
+			<input type="message" placeholder="Enter your message.." class="message" required>
+			<button>SEND</button>
+		</form>
+	</div>
+</div>
+</section>
+
+
+
+<footer>
+	&copy; 2024 VGDN Solution's. All rights not reserved.
+</footer>
+
+<script>
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slides[slideIndex-1].style.display = "block";  
+
+}
+</script>
+
+
+
+</body>
+</html>
