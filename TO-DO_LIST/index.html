@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>TO DO List</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+	<h1>To Do List</h1>
+	<div class="container">
+
+		<div class="form">
+		<input type="text" name="task" id="taskInput" placeholder="Task Name">
+		<div class="group">
+		<label>Deadline :</label>
+		<input type="date" name="deadline" id="deadlineInput" placeholder="Time">
+		</div>
+		<input type="number" name="task" max="10" min="0" id="priorityInput" placeholder="Priority">
+		<button onclick="add()">Add</button>
+		</div>
+		<div class="table">
+      <table id="todo-table">
+		<thead>
+			<th>SI NO</th>
+			<th>Task</th>
+			<th>Deadline</th>
+			<th>Priority</th>
+			<th>Action</th>
+		</thead>
+		<tbody>
+
+		</tbody>
+	</table>
+	</div>
+	</div>
+</body>
+
+<script type="text/javascript">
+	    var today = new Date().toISOString().split('T')[0];
+        document.getElementById("deadlineInput").value = today;
+
+		var to_do_s = [
+		    { id: '1', label: 'Meditation', date: '2024-03-14', priority: '5' }
+
+		];
+
+
+        function renderTodos() {
+            var tableBody = document.querySelector('#todo-table tbody');
+            tableBody.innerHTML = ''; 
+
+		        to_do_s.forEach(function(todo) {
+		            var tr = document.createElement('tr');
+		            tr.id=todo.id;
+		            tr.innerHTML = `
+		                <td>${todo.id}</td>
+		                <td>${todo.label}</td>
+		                <td>${todo.date}</td>
+		                <td>${todo.priority}/10</td>
+		                <td>
+		                    <button class="complete" onclick="complete(${todo.id})">Completed</button>
+		                    <button class="delete" onclick="remove(${todo.id})">Remove</button>
+		                </td>
+		            `;
+		            tableBody.appendChild(tr);
+		        });
+
+		    }
+
+
+        function add() {
+            var taskInput = document.getElementById('taskInput');
+            var deadlineInput = document.getElementById('deadlineInput');
+            var priorityInput = document.getElementById('priorityInput');
+            console.log(taskInput.value,'==',deadlineInput.value,'===',priorityInput.value);
+            var newId = (to_do_s.length > 0) ? (parseInt(to_do_s[to_do_s.length - 1].id) + 1).toString() : '1';
+            var newTodo = {
+                id: newId,
+                label: taskInput.value,
+                date: deadlineInput.value,
+                priority: priorityInput.value
+            };
+
+            to_do_s.push(newTodo);
+            renderTodos();
+            console.log(to_do_s);
+        }
+
+        function complete(id){
+        	var	trow=document.getElementById(id);
+        	trow.classList.add('completed');
+
+        }
+
+
+        function remove(id){
+        	var trow=document.getElementById(id);
+        	if (trow) {
+        		trow.remove();
+        	}
+        }
+       renderTodos();
+</script>
+</html>
